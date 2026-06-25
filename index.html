@@ -23,6 +23,7 @@
     --bg-grad-1: rgba(181,112,58,0.10);
     --bg-grad-line: rgba(255,255,255,0.012);
     --track-shadow: rgba(0,0,0,0.5);
+    --input-bg:  #221e18;
   }
 
   /* ---- TEMA CLARO: tons vivos alinhados ao logo (madeira/dourado) ---- */
@@ -42,6 +43,7 @@
     --bg-grad-1: rgba(216,150,84,0.20);
     --bg-grad-line: rgba(122,67,34,0.030);
     --track-shadow: rgba(160,120,70,0.30);
+    --input-bg:  #ffffff;
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -133,17 +135,23 @@
     color:var(--steel); text-transform:uppercase; white-space:nowrap;
   }
   select{
-    background:#221e18; color:var(--cream); border:1px solid var(--line);
+    background:var(--input-bg); color:var(--cream); border:1px solid var(--line);
     border-radius:5px; padding:7px 10px; font-family:'Archivo Narrow','Segoe UI',Arial,sans-serif; font-size:13px;
     min-width:180px; cursor:pointer;
   }
   select:focus{outline:2px solid var(--wood-light); outline-offset:1px;}
+  select option{background:var(--input-bg); color:var(--cream);}
+  /* No modo claro, reforça bordas e contraste dos campos de filtro */
+  body.light-mode select,
+  body.light-mode .ms-box{ border-color:var(--wood); color:var(--cream); }
+  body.light-mode .ms-box{ color:var(--cream-dim); }
+  body.light-mode .year-pill{ border-color:var(--wood-dark); }
 
   /* year pill toggles */
   .year-toggles{display:flex; gap:6px;}
   .year-pill{
     font-family:'JetBrains Mono','Courier New',monospace; font-size:11.5px;
-    background:#221e18; border:1px solid var(--line); color:var(--cream-dim);
+    background:var(--input-bg); border:1px solid var(--line); color:var(--cream-dim);
     padding:6px 12px; border-radius:14px; cursor:pointer; transition:.15s; user-select:none;
   }
   .year-pill.active{background:var(--wood-dark); border-color:var(--wood); color:var(--cream); font-weight:600;}
@@ -159,14 +167,14 @@
   /* multi-select client chips (panel 3/4) */
   .client-multiselect{position:relative;}
   .ms-box{
-    background:#221e18; border:1px solid var(--line); border-radius:5px;
+    background:var(--input-bg); border:1px solid var(--line); border-radius:5px;
     padding:7px 10px; font-size:13px; color:var(--cream-dim); cursor:pointer;
     min-width:260px; display:flex; justify-content:space-between; align-items:center; gap:8px;
   }
   .ms-box:hover{border-color:var(--wood-light);}
   .ms-dropdown{
     position:absolute; top:calc(100% + 4px); left:0; z-index:30;
-    background:#221e18; border:1px solid var(--wood-dark); border-radius:7px;
+    background:var(--input-bg); border:1px solid var(--wood-dark); border-radius:7px;
     max-height:280px; overflow-y:auto; min-width:340px; box-shadow:0 8px 24px var(--track-shadow);
     padding:6px;
   }
